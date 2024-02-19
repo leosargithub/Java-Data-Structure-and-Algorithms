@@ -4,12 +4,14 @@ public class Selectionsort {
         for(int i=0; i<arr.length; i++){
             System.out.print(arr[i] + " ");
         }
-    }
+    } 
 
 
     public static void main(String[] args) {
         // Selection sort
         int[] arr = {5, 2, 6, 1, 3, 7, 4};
+        // time complexity O(n^2)
+        
 
         for(int i=0; i<arr.length-1; i++){
 

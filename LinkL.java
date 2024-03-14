@@ -11,6 +11,8 @@ public class LinkL {
         list.addLast("linked");
         list.addLast("list");
         System.out.println(list);
+        // size of linked list
+        System.out.println("Size of linked list: " + list.size());
     }
     
 }

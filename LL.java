@@ -87,22 +87,46 @@ LL(){
         return size;
     }
 
+    public void reverseIterate(){
+
+        if(head == null || head.next == null){
+            return;
+        }
+  Node prev = head;
+  Node curr = head.next;
+
+  while(curr != null){
+      Node next = curr.next;
+      curr.next = prev;
+      prev = curr;
+      curr = next;
+ 
+
+  }
+    head.next = null;
+    head = prev;
+
+
+    }
 
     public static void main(String[] args) {
 
         LL list = new LL();
         list.addFirst("A");
-        list.addFirst("is");
+        list.addFirst("B");
+        list.addFirst("C");
+        list.addFirst("D");
+        list.addFirst("E");
+        list.addFirst("F");
+        list.addFirst("G");
         list.printlist();
-        list.addLast("B");
+        list.reverseIterate();
         list.printlist();
 
-        list.deleteFirst();
-        list.printlist();
-        list.deleteLast();
-        list.printlist();
+
         System.out.println("Size of list is: " + list.getSize());
         
     }
     
 }
+  

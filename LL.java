@@ -118,7 +118,7 @@ LL(){
         list.addFirst("D");
         list.addFirst("E");
         list.addFirst("F");
-        list.addFirst("G");
+        list.addFirst("G"); 
         list.printlist();
         list.reverseIterate();
         list.printlist();

@@ -41,6 +41,24 @@ public class BinaryTreesYT {
             preorder(root.left);
             preorder(root.right);
         }
+             public static void inorder(Node root){
+            if(root == null){
+                return;
+            }
+            inorder(root.left);
+            System.out.println(root.data+" ");
+            inorder(root.right);
+        }
+
+        public static void postorder(Node root){
+            if(root == null){
+                return;
+            }
+            postorder(root.left);
+            postorder(root.right);
+            System.out.println(root.data+" ");
+        }
+
 
     public static void main(String[] args) {
         
@@ -50,7 +68,9 @@ public class BinaryTreesYT {
         Node root = tree.buildTree(nodes);
 
         System.out.println(root.data);
-        preorder(root);
+      //  preorder(root);
+       // inorder(root);
+        postorder(root);
 
     }
     

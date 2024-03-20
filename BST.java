@@ -34,14 +34,39 @@ public class BST {
         System.out.println(root.data+" ");
         inorder(root.right);
     }
+     
+    public static boolean search(Node root, int val){
+        if(root == null){
+            return false;
+        }
+        if(root.data == val){
+            return true;
+        }
+        if(root.data > val){
+            return search(root.left, val);
+        }else{
+            return search(root.right, val);
+        }
+    }
+
     public static void main(String[] args) {
-        int values[] = {5, 1, 3,4,2,7};
+        int values[] = {8, 5, 3, 1,4,6,10,11,14};
         Node root = null;
 
         for(int val: values){
             root = insert(root, val);
         }
         inorder(root);
-        
+        System.out.println();
+
+        if(search(root, 9)){
+            System.out.println("Found");
+
+
+    }
+     else{
+        System.out.println("Not Found");
+
+}
     }
 }

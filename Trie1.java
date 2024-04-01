@@ -46,17 +46,43 @@ public class Trie1 {
     }
     return true;
 }
+
+public static boolean wordBreak(String key){
+    if(key.length() == 0){
+
+        return true;
+    }
+     for(int i=1; i<=key.length(); i++){
+        String firstPart = key.substring(0, i);
+        String secPart = key.substring(i);
+        if(search(firstPart) && wordBreak(secPart)){
+            return true;
+        }
+     }
+        return false;
+    }
+
     public static void main(String[] args) {
         
-        String words[] = {"apple", "app", "apart", "bat", "ball", "cat", "dog", "doggy", "dogged"};
+        // String words[] = {"apple", "app", "apart", "bat", "ball", "cat", "dog", "doggy", "dogged"};
+
+        // for(int i=0; i<words.length; i++){
+        //     insert(words[i]);
+        // }
+        // System.out.println(search("apple"));
+        // System.out.println(search("app"));
+        // System.out.println(search("apart"));
+        // System.out.println(search("car"));
+
+        // wrod break problem
+        String words[] = {"i", "like", "sam", "sung", "samsung", "mobile"};
+        String key = "ilikesamsung";
 
         for(int i=0; i<words.length; i++){
             insert(words[i]);
         }
-        System.out.println(search("apple"));
-        System.out.println(search("app"));
-        System.out.println(search("apart"));
-        System.out.println(search("car"));
+        
+        System.out.println(wordBreak(key));
 
     }
 }

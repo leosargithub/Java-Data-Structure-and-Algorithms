@@ -62,6 +62,20 @@ public static boolean wordBreak(String key){
         return false;
     }
 
+    public static boolean startWithPrefix(String prefix){
+        Node curr = root;
+
+        for(int i=0; i<prefix.length(); i++){
+            int index = prefix.charAt(i) - 'a';
+            Node node = curr.children[index];
+            if(node == null){
+                return false;
+            }
+            curr = curr.children[index];
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         
         // String words[] = {"apple", "app", "apart", "bat", "ball", "cat", "dog", "doggy", "dogged"};
@@ -75,14 +89,25 @@ public static boolean wordBreak(String key){
         // System.out.println(search("car"));
 
         // wrod break problem
-        String words[] = {"i", "like", "sam", "sung", "samsung", "mobile"};
-        String key = "ilikesamsung";
+        // String words[] = {"i", "like", "sam", "sung", "samsung", "mobile"};
+        // String key = "ilikesamsung";
+
+        // for(int i=0; i<words.length; i++){
+        //     insert(words[i]);
+        // }
+        
+        // System.out.println(wordBreak(key));
+
+        //start with prefix
+        String words[] = {"apple", "app", "apart", "bat", "ball", "cat", "dog", "doggy", "dogged"};
+        String prefix = "app";   
 
         for(int i=0; i<words.length; i++){
             insert(words[i]);
         }
-        
-        System.out.println(wordBreak(key));
+        System.out.println(startWithPrefix(prefix));
+
+
 
     }
 }

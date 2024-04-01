@@ -76,6 +76,19 @@ public static boolean wordBreak(String key){
         return true;
     }
 
+    public static int countNode(Node root){
+        if(root == null){
+            return 0;
+        }
+        int count = 0;
+        for(int i=0; i<26; i++){
+            if(root.children[i] != null){
+                count += countNode(root.children[i]);
+            }
+        }
+        return count+1;
+    }
+
     public static void main(String[] args) {
         
         // String words[] = {"apple", "app", "apart", "bat", "ball", "cat", "dog", "doggy", "dogged"};
@@ -99,14 +112,22 @@ public static boolean wordBreak(String key){
         // System.out.println(wordBreak(key));
 
         //start with prefix
-        String words[] = {"apple", "app", "apart", "bat", "ball", "cat", "dog", "doggy", "dogged"};
-        String prefix = "app";   
+        // String words[] = {"apple", "app", "apart", "bat", "ball", "cat", "dog", "doggy", "dogged"};
+        // String prefix = "app";   
 
-        for(int i=0; i<words.length; i++){
-            insert(words[i]);
+        // for(int i=0; i<words.length; i++){
+        //     insert(words[i]);
+        // }
+        // System.out.println(startWithPrefix(prefix));
+
+        String str = "apple";
+
+        for(int i=0; i<str.length(); i++){
+           String suffix = str.substring(i);
+              insert(suffix);
         }
-        System.out.println(startWithPrefix(prefix));
 
+        System.out.println(countNode(root));
 
 
     }

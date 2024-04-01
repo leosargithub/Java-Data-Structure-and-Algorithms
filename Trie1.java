@@ -89,6 +89,23 @@ public static boolean wordBreak(String key){
         return count+1;
     }
 
+    public static String ans = "";
+    public static void longestWord(Node root, StringBuilder temp){
+        if(root == null){
+            return;
+        }
+        for(int i=0; i<26; i++){
+            if(root.children[i] != null){
+                temp.append((char)(i+'a'));
+                if(temp.length() > ans.length()){
+                    ans = temp.toString();
+                }
+                longestWord(root.children[i], temp);
+                temp.deleteCharAt(temp.length()-1);
+            }
+        }
+    }
+
     public static void main(String[] args) {
         
         // String words[] = {"apple", "app", "apart", "bat", "ball", "cat", "dog", "doggy", "dogged"};
@@ -120,14 +137,26 @@ public static boolean wordBreak(String key){
         // }
         // System.out.println(startWithPrefix(prefix));
 
-        String str = "apple";
+        // String str = "apple";
 
-        for(int i=0; i<str.length(); i++){
-           String suffix = str.substring(i);
-              insert(suffix);
+        // for(int i=0; i<str.length(); i++){
+        //    String suffix = str.substring(i);
+        //       insert(suffix);
+        // }
+
+        // System.out.println(countNode(root));
+
+        // longest word
+        String words[] = {"apple", "app", "apart", "bat", "ball", "cat", "dog", "doggy", "dogged"};
+
+        for(int i=0; i<words.length; i++){
+            insert(words[i]);
         }
 
-        System.out.println(countNode(root));
+        StringBuilder temp = new StringBuilder();
+        longestWord(root, temp);
+        System.out.println(ans);
+        
 
 
     }

@@ -67,6 +67,18 @@ public class BFSearch {
 
         }
 
+
+            public static void dfs(ArrayList<Edge> graph[], int curr, boolean vis[]){
+                System.out.println(curr+" ");
+                vis[curr] = true;
+
+                for(int i=0; i<graph[curr].size(); i++){
+                    Edge e = graph[curr].get(i);
+                    if(vis[e.dest] == false)
+                    dfs(graph, e.dest, vis);
+                }
+
+            }
     public static void main(String[] args) {
 
         int v = 7;
@@ -74,7 +86,12 @@ public class BFSearch {
         ArrayList<Edge> graph[] = new ArrayList[v];
         createGraph(graph);
 
-        bfs(graph, v);
+        boolean vis[] = new boolean[v];
+
+       // bfs(graph, v);
+
+        dfs(graph, 0, vis);
+
 
         System.out.println();
 

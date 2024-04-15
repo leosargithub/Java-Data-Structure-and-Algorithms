@@ -89,7 +89,11 @@ public class BFSearch {
         boolean vis[] = new boolean[v];
 
        // bfs(graph, v);
+        for(int i=0; i<v; i++){
 
+            if(vis[i] == false)
+            dfs(graph, i, vis);
+        }
         dfs(graph, 0, vis);
 
 

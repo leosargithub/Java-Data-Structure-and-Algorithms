@@ -49,13 +49,40 @@ public class CycleDetection {
         return false;
 
     }
+
+    public static boolean isCycleUndirected(ArrayList<Edge> graph[], boolean vis[], int curr, int parent){
+
+        vis[curr] = true;
+
+        for(int i=0; i<graph[curr].size(); i++){
+
+            Edge e = graph[curr].get(i);
+            if(!vis[e.dest]){
+                if(isCycleUndirected(graph, vis, e.dest, curr)){
+                    return true;
+                }
+            } else if(e.dest != parent){
+                return true;
+            }
+        }
+        return false;
+
+    }
+
     public static void main(String[] args) {
         
+        // int V = 4;
+        // ArrayList<Edge> graph[] = new ArrayList[V];
+        // createGraph(graph);
+
+        // System.out.println(isCycleDirected(graph, new boolean[V], 0, new boolean[V]));
+
         int V = 4;
         ArrayList<Edge> graph[] = new ArrayList[V];
         createGraph(graph);
 
-        System.out.println(isCycleDirected(graph, new boolean[V], 0, new boolean[V]));
+        System.err.println(isCycleUndirected(graph, new boolean[V], 0, -1));
+        
 
     }
 }

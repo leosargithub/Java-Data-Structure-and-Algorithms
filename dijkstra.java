@@ -96,7 +96,7 @@ public class dijkstra{
             
 
              for(int i=0; i<V; i++){
-                 System.out.println("Distance of node " + i + " from source is " + dist[i]);
+                 System.out.println("D istance of node " + i + " from source is " + dist[i]);
              }  
             
 
